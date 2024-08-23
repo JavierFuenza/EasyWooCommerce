@@ -39,7 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'front',
+
+    #Apps de tawilwind
+    'tailwind',
+    'theme',
+    'django_browser_reload'
 ]
+
+TAILWIND_APP_NAME = 'theme' #Tailwind
+
+INTERNAL_IPS = [
+    "127.0.0.1", 
+] #Tailwind
+
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd" #Ruta de Node.js
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware", #Middleware de BrowserReload
 ]
 
 ROOT_URLCONF = 'easywoo.urls'
