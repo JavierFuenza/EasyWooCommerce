@@ -6,4 +6,4 @@ from api.views import wcapi, getProd
 
 
 def index(request):
-    return HttpResponse(getProd('65'))
+    return HttpResponse(getProd('0'))
