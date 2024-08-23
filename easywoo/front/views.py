@@ -7,3 +7,6 @@ from api.views import wcapi, getProd
 
 def index(request):
     return HttpResponse(getProd('0'))
+
+def home(request):
+    return render(request, 'front/base.html')
