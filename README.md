@@ -1,40 +1,37 @@
 # EasyWooCommerce
-App para conectar con WooCommerce y hacer mas fácil la manipulación de este
+Una aplicación para conectar con WooCommerce y facilitar su manipulación.
 
+## Cómo usar [Tailwind](https://tailwindcss.com/) en los templates de Django
 
+Tailwind ya está instalado en el proyecto de Django. Para utilizarlo en tus páginas HTML, sigue estos pasos:
 
+1. **Cargar las etiquetas de Tailwind en los templates:**
 
+   - Antes de la declaración `<!DOCTYPE>`, añade la siguiente línea:
+     ```django
+     {% load static tailwind_tags %}
+     ```
 
-## Como usar [Tailwind](https://tailwindcss.com/) en los templates de Django
+2. **Incluir el CSS de Tailwind en el `<head>`:**
 
+   - Dentro de la sección `<head>` de tu HTML, añade:
+     ```django
+     {% tailwind_css %}
+     ```
 
-Ya esta instalado Tailwind en el proyecto de django, y para usarlos en las paginas html hay que usar:
+3. **Desarrollar con Tailwind:**
 
-* Antes del !DOCTYPE
-´´´
-{% load static tailwind_tags %}
-´´´
+   - Para iniciar el proceso de desarrollo y compilación de Tailwind, ejecuta el siguiente comando en la consola:
+     ```bash
+     python manage.py tailwind start
+     ```
 
-* En el head
+   - Simultáneamente, puedes correr el servidor de Django con:
+     ```bash
+     python manage.py runserver
+     ```
 
-´´´
-{% tailwind_css %}
-´´´
+### Para más información
 
-Luego para desarrollar hay que dejar corriendo en la consola
-
-* Comando
-´´´
-python manage.py tailwind start
-´´´
-
-* Comando
-
-´´´
-python manage.py runserver
-´´´
-
-### Para más información del tutorial que segui
-
-* [Enlace del video tutorial](https://www.youtube.com/watch?v=76n7sqZocSk)
-* [Documentacion de DJANGO-TAILWIND](https://django-tailwind.readthedocs.io/en/latest/installation.html)
+- [Video tutorial que seguí](https://www.youtube.com/watch?v=76n7sqZocSk)
+- [Documentación de DJANGO-TAILWIND](https://django-tailwind.readthedocs.io/en/latest/installation.html)
