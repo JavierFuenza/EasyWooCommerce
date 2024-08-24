@@ -5,8 +5,9 @@ from api.views import wcapi, getProd
 
 
 
-def index(request):
+def getProductos(request):
     return HttpResponse(getProd('0'))
 
 def home(request):
-    return render(request, 'front/index.html')
+    productos = getProd('0')  # Obtener todos los productos
+    return render(request, 'front/index.html', {'productos': productos})

@@ -7,8 +7,33 @@
     <title>Home - EasyWoo</title>
     {% tailwind_css %}
 </head>
-<body>
+<body class="bg-gray-100">
     {% include 'includes/navbar.html' %}
-    <h1 class='text-5xl'>Holaas</h1>
+    
+    <h1 class="text-5xl text-center my-8 font-bold text-gray-800">Productos</h1>
+
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for producto in productos %}
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                {% if producto.images and producto.images|length > 0 %}
+                <img src="{{ producto.images.0.src }}" alt="{{ producto.name }}" class="w-full h-56 object-cover">
+                {% else %}
+                <div class="w-full h-56 bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500 text-lg">Sin imagen disponible</span>
+                </div>
+                {% endif %}
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-gray-800">{{ producto.name }}</h2>
+                    <p class="mt-2 text-gray-600 font-semibold">{{ producto.price|default:"Precio no disponible" }}</p>
+                    <p class="mt-4 text-gray-600">{{ producto.description|striptags|truncatewords:20 }}</p>
+                    <a href="{{ producto.permalink }}" target="_blank" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300">Ver producto</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'includes/footer.html' %}
 </body>
 </html>
+

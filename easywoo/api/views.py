@@ -12,15 +12,14 @@ wcapi = API(
     version="wc/v3"
 )
 #Listar productos
-def getProd (id='0'):
+def getProd(id='0'):
     """
-    Funcion para obtener productos utilizando la api, 
-    se puede ingresar un id de producto en especifico, 
-    o dejar vacio para listar todos los productos 
+    Función para obtener productos utilizando la API de WooCommerce.
+    Se puede ingresar un id de producto específico, o dejarlo vacío para listar todos los productos.
     """
     if id == '0':
-        productos:str = wcapi.get("products/").json()
+        productos = wcapi.get("products/").json()
     else:
-        productos:str = wcapi.get(f"products/{id}").json()
-    return str(productos)
+        productos = wcapi.get(f"products/{id}").json()
+    return productos
 
