@@ -1,4 +1,5 @@
 # EasyWooCommerce
+
 Una aplicación para conectar con WooCommerce y facilitar su manipulación.
 
 ## Cómo usar [Tailwind](https://tailwindcss.com/) en los templates de Django
@@ -21,7 +22,14 @@ Tailwind ya está instalado en el proyecto de Django. Para utilizarlo en tus pá
 
 3. **Desarrollar con Tailwind:**
 
+   - Asegurate de tener las dependencias de tailwind instaladas con el siguiente comando en consola:
+
+     ```bash
+     python manage.py tailwind install
+     ```
+
    - Para iniciar el proceso de desarrollo y compilación de Tailwind, ejecuta el siguiente comando en la consola:
+
      ```bash
      python manage.py tailwind start
      ```
