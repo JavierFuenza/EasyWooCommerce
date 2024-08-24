@@ -1,6 +1,6 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% for producto in productos %}
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-5 transition-all duration-300">
                 {% if producto.images and producto.images|length > 0 %}
                 <img src="{{ producto.images.0.src }}" alt="{{ producto.name }}" class="w-full h-56 object-cover">
                 {% else %}
@@ -25,9 +25,9 @@
                 {% endif %}
                 <div class="p-6">
                     <h2 class="text-xl font-bold text-gray-800">{{ producto.name }}</h2>
-                    <p class="mt-2 text-gray-600 font-semibold">{{ producto.price|default:"Precio no disponible" }}</p>
+                    <p class="mt-2 text-gray-600 font-semibold">${{ producto.price|default:"Precio no disponible" }}</p>
                     <p class="mt-4 text-gray-600">{{ producto.description|striptags|truncatewords:20 }}</p>
-                    <a href="{{ producto.permalink }}" target="_blank" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300">Ver producto</a>
+                    <a href="{% url 'product' producto.id %}" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-300">Ver producto</a>
                 </div>
             </div>
             {% endfor %}

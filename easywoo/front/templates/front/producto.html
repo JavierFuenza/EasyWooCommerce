@@ -1,0 +1,33 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ producto.name }} - EasyWoo</title>
+    {% tailwind_css %}
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen justify-between">
+    {% include 'includes/navbar.html' %}
+    
+    <div class="container mx-auto mt-10 px-4">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            {% if producto.images and producto.images|length > 0 %}
+            <img src="{{ producto.images.0.src }}" alt="{{ producto.name }}" class="w-full h-64 object-cover">
+            {% else %}
+            <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-500 text-lg">Sin imagen disponible</span>
+            </div>
+            {% endif %}
+            <div class="p-6">
+                <h1 class="text-3xl font-bold text-gray-800">{{ producto.name }}</h1>
+                <p class="mt-4 text-gray-600">${{ producto.price|default:"Precio no disponible" }}</p>
+                <p class="mt-4 text-gray-600">{{ producto.description|safe }}</p>
+                <a href="{{ producto.permalink }}" target="_blank" class="mt-6 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">Comprar ahora</a>
+            </div>
+        </div>
+    </div>
+
+    {% include 'includes/footer.html' %}
+</body>
+</html>
